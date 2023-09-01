@@ -114,7 +114,7 @@ Resetear el contenedor
 sudo docker restart <container-id>
 ```
 
-# Pruebas de funcionamiento. Brocker, publisher y suscriber mqtt contenerizados.
+# Pruebas de funcionamiento. Broker, publisher y suscriber mqtt contenerizados.
 
 Si quieres comprobar su funcionamiento sigue además los pasos que se detallan a continuación.
 Esto va a crear un multi-contenedor docker con un brocker de mqtt, un publisher y un suscriber.
@@ -179,8 +179,8 @@ services:
     expose:
       - "1883"
     command: 
-        - apt update
-        - apt install mosquitto-clients -y
+      - apt update
+      - apt install mosquitto-clients -y
     tty: true
     networks:
       - default
@@ -237,4 +237,4 @@ mosquitto_pub -v -t "test_mqtt" -h <IP_docker_broker> -u user -P 123456789
 ## 8. Comprobar la recepción:
 Se puede ver si todo ha funcionado correctamente como el suscriptor recibe todo lo que se envíe por ese canal.
 
-*Repositorio original github.com: sukesh-ak / setup-mosquitto-with-docker
+*Repositorio original github.com: [sukesh-ak / setup-mosquitto-with-docker](https://github.com/sukesh-ak/setup-mosquitto-with-docker)
