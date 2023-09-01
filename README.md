@@ -168,8 +168,8 @@ services:
     expose:
       - "1883"
     command:
-	-apt update 
-	-apt install mosquitto-clients -y
+      -apt update 
+      -apt install mosquitto-clients -y
     tty: true #mantiene vivo el contenedor, de otro modo, en cuanto ejecuta el command se apaga automáticamente.
     networks:
       - default
