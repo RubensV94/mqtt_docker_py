@@ -1,6 +1,5 @@
-# Como confirgurar e instalar Mosquitto MQTT Broker utilizando docker 
-These instructions will work on any Debian based OS including Ubuntu, RaspberryPi, WSL2 etc...  
-(For non-Debian distros, commands for installation need to be tweaked)  
+# Cómo configurar e instalar Mosquitto MQTT Broker utilizando docker 
+Para no Debian distros, los comandos pueden variar
 _Como configuración por defecto solo se permite el uso de conexiones locales por temas de seguridad.No obstante, más adelante se habilita la autenticación por lo que se evita lo anterior._
 
 ## 1. Instalar docker
@@ -14,7 +13,6 @@ cd mqtt5
 
 # Para guardar los archivos mosquitto.conf y pwfile (para la contraseña):
 mkdir config
-
 ```
 
 ## 3. Crear el archivo de configuración de mosquitto - mosquitto.conf
@@ -211,7 +209,7 @@ A continuación si estás en windows:
 ```bash
 docker inspect <id_docker_mqtt5> | findstr "IPAddress"
 ```
-Obtendremos la IP del broker mqtt.
+Obtendremos la IP del broker mqtt que se necesita para el paso 7.
 
 
 ## 6. Abrir un terminal para publicar y otro para suscribirse:
@@ -237,5 +235,6 @@ mosquitto_pub -v -t "test_mqtt" -h <IP_docker_broker> -u user -P 123456789
 
 
 ## 8. Comprobar la recepción:
-Se puede ver si todo ha funcionado correctamente como el suscriptor recibe todo lo que se envíe por ese canal
+Se puede ver si todo ha funcionado correctamente como el suscriptor recibe todo lo que se envíe por ese canal.
 
+*Repositorio original github.com: sukesh-ak / setup-mosquitto-with-docker
