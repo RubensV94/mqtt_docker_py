@@ -1,4 +1,4 @@
-# Cómo configurar e instalar Mosquitto MQTT Broker utilizando docker 
+# Cómo configurar e instalar Mosquitto MQTT broker utilizando docker 
 Para no Debian distros, los comandos pueden variar
 _Como configuración por defecto solo se permite el uso de conexiones locales por temas de seguridad.No obstante, más adelante se habilita la autenticación por lo que se evita lo anterior._
 
@@ -117,7 +117,7 @@ sudo docker restart <container-id>
 # Pruebas de funcionamiento. Broker, publisher y suscriber mqtt contenerizados.
 
 Si quieres comprobar su funcionamiento sigue además los pasos que se detallan a continuación.
-Esto va a crear un multi-contenedor docker con un brocker de mqtt, un publisher y un suscriber.
+Esto va a crear un multi-contenedor docker con un broker de mqtt, un publisher y un suscriber.
 
 ## 1. Añade una red interna en el archivo docker-compose.yaml
 -En el mismo nivel que "services:" se define la red.
