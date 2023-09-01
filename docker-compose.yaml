@@ -1,0 +1,49 @@
+version: '3.8'
+services:
+
+  mqtt5:
+    image: eclipse-mosquitto
+    container_name: mqtt5
+    expose:
+      - "1883" #puerto mqtt por defecto
+      - "9001" #puerto mqtt por defecto para websockets
+    ports:
+      - "1883:1883"
+    networks:
+      - default
+    volumes:
+      - ./config:/mosquitto/config:rw
+      - ./data:/mosquitto/data:rw
+      - ./log:/mosquitto/log:rw
+  
+  mqtt5_sub:
+    image: "python:3.9.18-slim-bullseye"
+    container_name: mqtt5_user_sub
+    expose:
+      - "1883"
+    command:
+	-apt update 
+	-apt install mosquitto-clients -y
+    tty: true #mantiene vivo el contenedor, de otro modo, en cuanto ejecuta el command se apaga automáticamente.
+    networks:
+      - default
+  mqtt5_pub:
+    image: "python:3.9.18-slim-bullseye"
+    container_name: mqtt5_user_pub
+    expose:
+      - "1883"
+    command: 
+        - apt update
+        - apt install mosquitto-clients -y
+    tty: true
+    networks:
+      - default
+## volumes for mapping data,config and log
+volumes:
+  config:
+  data:
+  log:
+
+networks:
+  default:
+    name: mqtt5-network
